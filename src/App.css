@@ -69,3 +69,12 @@ header {
 .img-seguidor:hover {
   cursor: pointer;
 }
+
+.error-icon-container {
+ border-radius: 50%;
+}
+
+.error-icon-container i {
+  font-size: 20rem;
+  color: red;
+}

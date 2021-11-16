@@ -8,6 +8,7 @@ import Principal from './views/Principal';
 import Resumen from './views/Resumen';
 import Repositorios from './views/Repositorios';
 import Seguidores from './views/Seguidores';
+import UsuarioNoExiste from './views/UsuarioNoExiste';
 
 const App = () => {
   const [informacionUsuario,seInformacionUsuario] = useState(null);
@@ -19,10 +20,18 @@ const App = () => {
       const response = await fetch(`https://api.github.com/users/${usuario}`);  
       const data = await response.json();
 
-      seInformacionUsuario(data);
-      setMostrarInformacion(true);
+      if(response.status === 404) {
+        seInformacionUsuario(null);
+        setMostrarInformacion(false);  
 
-      navigate("/user");
+        navigate("/usernotfound");
+      }else {
+        seInformacionUsuario(data);
+        setMostrarInformacion(true);
+
+        navigate("/user");
+      }
+      
     }else {
       Swal.fire({
         icon: 'error',
@@ -44,6 +53,7 @@ const App = () => {
               { mostrarInformacion ? <Route path="/user" exact element={<Resumen informacion={informacionUsuario} />}/> : null }
               { mostrarInformacion ? <Route path="/:user/repositorios" exact element={<Repositorios />}/> : null }
               { mostrarInformacion ? <Route path="/:user/seguidores" exact element={<Seguidores setUsuario={setUsuario} />}/> : null }
+              <Route path="/usernotfound" exact element={<UsuarioNoExiste/>} />
             </Routes>          
         </div>
       </div>
