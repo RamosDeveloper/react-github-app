@@ -1,38 +1,71 @@
+header {
+  position: relative;
+}
+
 .App {
-  text-align: center;
+  height: 100vh;
+  background-color: lightblue;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.icono-principal {
+  color: mediumvioletred;
+  font-size: 40rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-resumen {
+  width: 300px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-repos {
+  min-height: 250px;
+}
+
+.avatar-img {
+  height: 200px;
+  border-radius: 50%;
+}
+
+.bg-light-blue {
+  background-color: lightblue;
+}
+
+.bg-mediumvioletred {
+  background-color: mediumvioletred;
+}
+
+.adicional-font-size {
+  font-size: 3rem;
+}
+
+.informacion-adicional {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.repos {
+  background-color: mediumvioletred;
+  border-radius: 50%;
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.followers {
+  background-color: lightblue;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.repo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-seguidor {
+  height: 150px;
+  border-radius: 50%;
+}
+
+.img-seguidor:hover {
+  cursor: pointer;
 }
