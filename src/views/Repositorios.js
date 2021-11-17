@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useParams  } from 'react-router';
 import { Link }  from "react-router-dom";
 
 const Repositorios = () => {
     const [repositorios, setRepositorios] = useState([]);
-    const usuario = window.location.pathname.split("/")[1];
+    const match = useParams();
+    const usuario = match.user;
 
     const getRepositorios = async () => {
         const response = await fetch(`https://api.github.com/users/${usuario}/repos`);
@@ -31,7 +33,7 @@ const Repositorios = () => {
                             <div className="card card-repos">
                                 <div className="card-header repo-header">
                                     <span>{repo.name}</span>
-                                    <i class="fas fa-folder"></i>
+                                    <i className="fas fa-folder"></i>
                                 </div>
                                 <div className="card-body">
                                     <div className="my-2">

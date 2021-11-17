@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams  } from 'react-router';
 import { Link }  from "react-router-dom";
+
 
 const Seguidores = ({setUsuario}) => {
     const [seguidores, setSeguidores] = useState([]);
-    const usuario = window.location.pathname.split("/")[1];
+    const match = useParams();
+    const usuario = match.user;
+
     let navigate = useNavigate();
 
     const getSeguidores = async () => {
